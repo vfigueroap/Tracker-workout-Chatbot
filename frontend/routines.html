@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Flex — Rutinas</title>
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <header class="app-header">
+      <span class="logo">💪 Flex</span>
+      <span class="header-title">Rutinas</span>
+    </header>
+
+    <main class="app-main">
+      <div class="page-container">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-6)">
+          <h1 class="page-title" style="margin-bottom:0">Rutinas</h1>
+          <button class="btn btn-primary btn-sm" onclick="openUploadModal()">+ Subir rutina</button>
+        </div>
+
+        <div id="routines-list"></div>
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <div class="sidebar-logo">💪 Flex</div>
+      <a href="chat.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span>Chat</span>
+      </a>
+      <a href="dashboard.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        <span>Dashboard</span>
+      </a>
+      <a href="routines.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        <span>Rutinas</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Historial</span>
+      </a>
+      <a href="profile.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>Perfil</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Upload modal -->
+  <div class="modal-overlay" id="upload-modal" style="display:none" onclick="closeUploadModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <h2 class="modal-title">Subir rutina</h2>
+      <p style="color:var(--text-secondary);font-size:var(--text-sm);margin-bottom:var(--space-4)">
+        Pega tu rutina en texto libre. Flex la leerá y la estructurará automáticamente.
+      </p>
+      <div class="form-group">
+        <label class="form-label">Texto de la rutina</label>
+        <textarea id="upload-text" class="form-textarea" rows="8"
+          placeholder="Ej: Día 1 – Pecho&#10;Press banca 4x8&#10;Aperturas 3x12&#10;..."></textarea>
+      </div>
+      <div style="display:flex;gap:var(--space-3);justify-content:flex-end">
+        <button class="btn btn-secondary" onclick="closeUploadModal()">Cancelar</button>
+        <button class="btn btn-primary" id="upload-btn" onclick="uploadRoutine()">
+          Analizar con IA
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/routines.js"></script>
+</body>
+</html>
