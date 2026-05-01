@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Flex — Chat</title>
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <!-- Mobile header -->
+    <header class="app-header">
+      <span class="logo">💪 Flex</span>
+      <span class="header-title">Chat</span>
+      <div id="session-pill" class="session-pill" style="display:none">
+        <span class="dot"></span>
+        <span id="session-timer">0:00</span>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="app-main">
+      <div class="chat-page">
+        <div class="messages-area" id="messages-area">
+          <!-- Welcome -->
+          <div class="welcome-state" id="welcome-state">
+            <div class="welcome-logo">💪</div>
+            <h1 class="welcome-title">Hola, soy Flex</h1>
+            <p class="welcome-sub">Tu entrenador personal con IA. Cuéntame tu entrenamiento y lo registro automáticamente.</p>
+            <div class="welcome-chips">
+              <button class="chip" onclick="fillPrompt('Empecé el entrenamiento')">🏋️ Empezar sesión</button>
+              <button class="chip" onclick="fillPrompt('Hice 3 series de 8 sentadilla a 80kg')">Registrar ejercicio</button>
+              <button class="chip" onclick="fillPrompt('Terminé el entrenamiento')">✅ Terminar sesión</button>
+              <button class="chip" onclick="fillPrompt('¿Cómo va mi progreso en press banca?')">📈 Ver progreso</button>
+              <button class="chip" onclick="fillPrompt('Créame una rutina de 4 días')">📋 Crear rutina</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input -->
+        <div class="chat-input-area">
+          <form class="chat-form" id="chat-form">
+            <textarea
+              id="chat-input"
+              class="chat-textarea"
+              placeholder="Escribe aquí..."
+              rows="1"
+              autocomplete="off"
+              spellcheck="false"
+            ></textarea>
+            <button type="submit" class="send-btn" id="send-btn" disabled>
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Nav -->
+    <nav class="bottom-nav">
+      <div class="sidebar-logo">💪 Flex</div>
+      <a href="chat.html" class="nav-item active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span>Chat</span>
+      </a>
+      <a href="dashboard.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        <span>Dashboard</span>
+      </a>
+      <a href="routines.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        <span>Rutinas</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Historial</span>
+      </a>
+      <a href="profile.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>Perfil</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>

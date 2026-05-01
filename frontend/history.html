@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Flex — Historial</title>
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <div class="app-shell">
+
+    <header class="app-header">
+      <span class="logo">💪 Flex</span>
+      <span class="header-title">Historial</span>
+    </header>
+
+    <main class="app-main">
+      <div class="page-container">
+        <h1 class="page-title">Historial</h1>
+        <div id="sessions-list">
+          <div class="skeleton" style="height:80px;border-radius:var(--radius-lg);margin-bottom:var(--space-2)"></div>
+          <div class="skeleton" style="height:80px;border-radius:var(--radius-lg);margin-bottom:var(--space-2)"></div>
+          <div class="skeleton" style="height:80px;border-radius:var(--radius-lg)"></div>
+        </div>
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <div class="sidebar-logo">💪 Flex</div>
+      <a href="chat.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span>Chat</span>
+      </a>
+      <a href="dashboard.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+          <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        <span>Dashboard</span>
+      </a>
+      <a href="routines.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+        </svg>
+        <span>Rutinas</span>
+      </a>
+      <a href="history.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Historial</span>
+      </a>
+      <a href="profile.html" class="nav-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span>Perfil</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- Session detail modal -->
+  <div class="modal-overlay" id="session-modal" style="display:none" onclick="closeSessionModal(event)">
+    <div class="modal" onclick="event.stopPropagation()" id="session-modal-content">
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/history.js"></script>
+</body>
+</html>
